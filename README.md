@@ -2,7 +2,7 @@
 
 ## Introduction:-
 
-This project senses the human activity with the help of a app installed in the smart phone which uses ML to predict from the data collected from sensors present in phone. This Project is handled bby DSC ML Team of NIT Patna
+This project senses the human activity with the help of a app installed in the smart phone which uses ML to predict from the data collected from sensors present in phone. This Project is handled by DSC ML Team of NIT Patna
 
 ## Which Sensors we use to get the data:-
 
@@ -22,3 +22,8 @@ Once we collect the data we will be preprocessing the data and train it using LS
 4. Need to deploy the model in Mobile
 5. Make it avalaible in Playstore
 
+## Maintainers of this Project:-
+
+* [Sai Durga Kamesh Kota](https://github.com/ksdkamesh99)
+* [Raj Kothari](https://github.com/rajkothari634)
+* [Aparna Juhi](https://github.com/AparnaJuhi)
