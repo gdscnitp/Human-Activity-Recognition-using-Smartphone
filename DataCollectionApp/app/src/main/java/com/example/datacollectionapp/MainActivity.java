@@ -7,6 +7,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +22,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onSensorChanged(SensorEvent event) {
             float[] values = event.values;
-            ttg.setText("Gyroscope\nx: "+values[0]+"\ny: "+values[1]+"\nz: "+values[2]);
+            String s="Gyroscope\nx: "+Float.toString(values[0])+" y: "+Float.toString(values[1])+" z: "+Float.toString(values[2]);
+            Log.d("hi",s);
+            ttg.setText(s);
 
         }
 
@@ -34,7 +37,11 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onSensorChanged(SensorEvent event) {
             float values[]=event.values;
-            tta.setText("Accelerometer\nx: "+values[0]+"\ny: "+values[1]+"\nz: "+values[2]);
+            String s;
+            s="Accelerometer\nx: "+Float.toString(values[0])+ " y: " +Float.toString(values[1])+" z: "+Float.toString(values[2]);
+            Log.d("hi",s);
+
+            tta.setText(s);
 
         }
 
