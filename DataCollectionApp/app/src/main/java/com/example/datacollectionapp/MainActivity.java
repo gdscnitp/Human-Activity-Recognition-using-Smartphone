@@ -2,12 +2,11 @@ package com.example.datacollectionapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,46 +15,60 @@ import org.w3c.dom.Text;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    SensorManager sm=null;
-    TextView tt;
-    List list;
-    SensorEventListener sel=new SensorEventListener() {
-        @Override
-        public void onSensorChanged(SensorEvent event) {
-            float[] values = event.values;
-            tt.setText("x: "+values[0]+"\ny: "+values[1]+"\nz: "+values[2]);
+    private Button Walking,Running,Standing,Upstairs,Downstairs;
 
-        }
 
-        @Override
-        public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-        }
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sm=(SensorManager)getSystemService((SENSOR_SERVICE));
-        tt=(TextView)findViewById(R.id.tv);
-        list=sm.getSensorList(Sensor.TYPE_GYROSCOPE);
-        if(list.size()>0){
-            sm.registerListener(sel,(Sensor)list.get(0),SensorManager.SENSOR_DELAY_NORMAL);
 
-        }
-        else{
-            Toast.makeText(getBaseContext(), "Error: No Accelerometer.", Toast.LENGTH_LONG).show();
+        Walking = (Button) findViewById(R.id.walking);
+        Running = (Button) findViewById(R.id.running);
+        Standing = (Button) findViewById(R.id.downstairs);
+        Upstairs = (Button) findViewById(R.id.upstairs);
+        Downstairs = (Button) findViewById(R.id.downstairs);
 
-        }
+        Walking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, walking.class);
+                startActivity(intent);
+            }
+        });
+
+        Running.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, running.class);
+                startActivity(intent);
+            }
+        });
+
+        Standing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, standing.class);
+                startActivity(intent);
+            }
+        });
+
+        Upstairs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, upstairs.class);
+                startActivity(intent);
+            }
+        });
+
+        Downstairs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, downstairs.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
-    @Override
-    protected void onStop() {
-        if(list.size()>0){
-            sm.unregisterListener(sel);
-        }
-        super.onStop();
-    }
-
-
 }
