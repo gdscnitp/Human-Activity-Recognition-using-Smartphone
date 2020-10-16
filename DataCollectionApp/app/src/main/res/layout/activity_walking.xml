@@ -12,7 +12,7 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Please Enter Your Name"
+        android:hint="Enter Your Name"
         android:layout_marginTop="10dp"
         />
 

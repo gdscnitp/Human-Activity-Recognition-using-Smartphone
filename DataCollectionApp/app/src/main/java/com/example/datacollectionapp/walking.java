@@ -47,7 +47,7 @@ public class walking extends AppCompatActivity implements SensorEventListener{
 
 
         sensorManager.registerListener(walking.this,accelerometer,SensorManager.SENSOR_DELAY_NORMAL);
-        Log.d(TAG,"onCreate:Registered accelerometer Listener");
+        Log.d(TAG,"onCreate:Registered Accelerometer Listener");
 
     }
 

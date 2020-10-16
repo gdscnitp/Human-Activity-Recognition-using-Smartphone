@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class running extends AppCompatActivity {
+public class running extends AppCompatActivity{
     SensorManager sm=null;
     TextView tt;
     List list;

@@ -42,7 +42,7 @@ public class standing extends AppCompatActivity {
 
         }
         else{
-            Toast.makeText(getBaseContext(), "Error: No Accelerometer.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Error: No accelerometer.", Toast.LENGTH_LONG).show();
 
         }
 

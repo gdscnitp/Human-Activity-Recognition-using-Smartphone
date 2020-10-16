@@ -15,6 +15,7 @@ import org.w3c.dom.Text;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
     private Button Walking,Running,Standing,Upstairs,Downstairs;
 
 
