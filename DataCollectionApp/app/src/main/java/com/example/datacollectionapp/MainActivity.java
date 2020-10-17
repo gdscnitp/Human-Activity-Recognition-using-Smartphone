@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         Walking = (Button) findViewById(R.id.walking);
         Running = (Button) findViewById(R.id.running);
-        Standing = (Button) findViewById(R.id.downstairs);
+        Standing = (Button) findViewById(R.id.standing);
         Upstairs = (Button) findViewById(R.id.upstairs);
         Downstairs = (Button) findViewById(R.id.downstairs);
 
