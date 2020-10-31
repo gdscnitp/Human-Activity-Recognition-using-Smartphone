@@ -2,88 +2,74 @@ package com.example.datacollectionapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    SensorManager sm=null;
-    TextView ttg,tta;
-    List listg;
-    List lista;
-    SensorEventListener selg=new SensorEventListener() {
-        @Override
-        public void onSensorChanged(SensorEvent event) {
-            float[] values = event.values;
-            String s="Gyroscope\nx: "+Float.toString(values[0])+" y: "+Float.toString(values[1])+" z: "+Float.toString(values[2]);
-            Log.d("hi",s);
-            ttg.setText(s);
 
-        }
+    private Button Walking,Running,Standing,Upstairs,Downstairs;
 
-        @Override
-        public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
-        }
-    };
-    SensorEventListener sela=new SensorEventListener() {
-        @Override
-        public void onSensorChanged(SensorEvent event) {
-            float values[]=event.values;
-            String s;
-            s="Accelerometer\nx: "+Float.toString(values[0])+ " y: " +Float.toString(values[1])+" z: "+Float.toString(values[2]);
-            Log.d("hi",s);
-
-            tta.setText(s);
-
-        }
-
-        @Override
-        public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-        }
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sm=(SensorManager)getSystemService((SENSOR_SERVICE));
-        ttg=(TextView)findViewById(R.id.tvg);
-        tta=(TextView)findViewById(R.id.tva);
-        listg=sm.getSensorList(Sensor.TYPE_GYROSCOPE);
-        lista=sm.getSensorList((Sensor.TYPE_ACCELEROMETER));
-        if(listg.size()>0){
-            sm.registerListener(selg,(Sensor)listg.get(0),SensorManager.SENSOR_DELAY_NORMAL);
 
-        }
-        else{
-            Toast.makeText(getBaseContext(), "Error: No Gyroscope.", Toast.LENGTH_LONG).show();
+        Walking = (Button) findViewById(R.id.walking);
+        Running = (Button) findViewById(R.id.running);
+        Standing = (Button) findViewById(R.id.standing);
+        Upstairs = (Button) findViewById(R.id.upstairs);
+        Downstairs = (Button) findViewById(R.id.downstairs);
 
-        }
-        if(lista.size()>0){
-            sm.registerListener(sela,(Sensor)lista.get(0),SensorManager.SENSOR_DELAY_NORMAL);
-        }
-        else{
-            Toast.makeText(getBaseContext(), "Error: No Accelerometer.", Toast.LENGTH_LONG).show();
+        Walking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, walking.class);
+                startActivity(intent);
+            }
+        });
 
-        }
+        Running.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, running.class);
+                startActivity(intent);
+            }
+        });
+
+        Standing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, standing.class);
+                startActivity(intent);
+            }
+        });
+
+        Upstairs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, upstairs.class);
+                startActivity(intent);
+            }
+        });
+
+        Downstairs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, downstairs.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
-    @Override
-    protected void onStop() {
-        if(lista.size()>0 || listg.size()>0){
-            sm.unregisterListener(sela);
-            sm.unregisterListener(selg);
-        }
-        super.onStop();
-    }
-
-
 }
