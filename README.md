@@ -14,6 +14,16 @@ This project senses human activity with the help of an app installed in the smar
 
 Once we collect the data we will be preprocessing the data and train it using LSTM or further more advanced models. Then finally we would be predicting the activity.
 
+## Activities It Tracks:-
+
+1. WALKING
+2. WALKING_UPSTAIRS
+3. WALKING_DOWNSTAIRS
+4. SITTING
+5. STANDING
+6. LAYING
+
+
 ## Tasks Involved:-
 
 1. Firstly we need to make a android app and integrate with firebase for collecting the data
